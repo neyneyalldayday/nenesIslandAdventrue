@@ -20,14 +20,33 @@ namespace RPG.Example
         public Robot()
         {
             //isTurnedOn = true; 
-            CaluclatePrice();
+            float newPrice = CaluclatePrice(0.7f, 1);
+
+            if(newPrice > 75f)
+            {
+                price = newPrice;
+            } 
+            else 
+            {
+                // print("Price is too low foo!!!!");            
+                // Debug.LogError("you suck hard");
+                Log("you suck bitch");
+                Log<int>(age);
+                Log(isTurnedOn);
+            }
             
         }
 
-        public void CaluclatePrice()
+        public float CaluclatePrice( float discount, int quantity )
         {
-            price = price - (price * 0.1f);
+            return (price - ( price * discount )) * quantity; 
         }
+
+        public void Log<Placeholder>(Placeholder message)
+        {
+            Debug.Log(message);
+        }
+       
 
     }
 
