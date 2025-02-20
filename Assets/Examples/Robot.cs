@@ -13,14 +13,20 @@ namespace RPG.Example
         */
 
         public int age = 5;
-        private float price = 99.99f;
+        public float price = 99.99f;
         //private string name = "McBot";
         public bool isTurnedOn = false;
 
         public Robot()
         {
-            isTurnedOn = true; 
+            //isTurnedOn = true; 
+            CaluclatePrice();
             
+        }
+
+        public void CaluclatePrice()
+        {
+            price = price - (price * 0.1f);
         }
 
     }
