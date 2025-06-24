@@ -37,9 +37,16 @@ namespace RPG.Character
         private void Rotate()
         {
             if (movementVector == Vector3.zero) return;
-          
+
             Quaternion startRotation = transform.rotation;
             Quaternion endRotation = Quaternion.LookRotation(movementVector);
+
+
+            transform.rotation = Quaternion.Lerp(
+                startRotation,
+                endRotation,
+                Time.deltaTime * agent.angularSpeed 
+                );
         } 
 
     }

@@ -7,54 +7,24 @@ namespace RPG.Example
 {
     public class Robot : MonoBehaviour
     {
-        // /*
-        // Variables
-        // ============
-        // n stuff
-        // */
+        private Battery includedBattery;
 
-        // public int age = 5;
-        // public float price = 99.99f;
-        // //private string name = "McBot";
-        // public bool isTurnedOn = false;
+        Robot()
+        {
+            includedBattery = new Battery(80f);
+            print(includedBattery.health);
+        }
+    }
 
-        // public Robot()
-        // {
-        //     //isTurnedOn = true; 
-        //     float newPrice = CaluclatePrice(0.7f, 1);
+    public class Battery
+    {
+        public float health;
 
-        //     if(newPrice > 75f)
-        //     {
-        //         price = newPrice;
-        //     } 
-        //     else 
-        //     {
-        //         // print("Price is too low foo!!!!");            
-        //         // Debug.LogError("you suck hard");
-        //         Log("you suck bitch");
-        //         Log<int>(age);
-        //         Log(isTurnedOn);
-        //     }
-            
-        // }
-
-        // [Obsolete("calculate price is deprecated use ApplyDiscount instead")]
-        // public float CaluclatePrice( float discount, int quantity )
-        // {
-        //     return (price - ( price * discount )) * quantity; 
-        // }
-
-        // public float ApplyDiscount( float discount )
-        // {
-        //     return (price - ( price * discount )); 
-        // }
-
-        // public void Log<Placeholder>(Placeholder message)
-        // {
-        //     Debug.Log(message);
-        // }
-       
-
+        public Battery(float newHealth)
+        {
+            health = newHealth;
+            Debug.Log("New battery created");
+        }
     }
 
 }
