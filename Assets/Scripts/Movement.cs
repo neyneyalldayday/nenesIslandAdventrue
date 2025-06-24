@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 
 namespace RPG.Character
@@ -13,16 +14,17 @@ namespace RPG.Character
         private void Awake()
         {
             agent = GetComponent<NavMeshAgent>();
-        } 
+        }
 
-       private void Update()
+        private void Update()
         {
-            MovePlayer();   
+            MovePlayer();
+            Rotate();
         }
 
         private void MovePlayer()
         {
-            Vector3 offset = movementVector * Time.deltaTime;
+            Vector3 offset = movementVector * Time.deltaTime * agent.speed;
             agent.Move(offset);
         }
 
@@ -30,10 +32,15 @@ namespace RPG.Character
         {
             Vector2 input = context.ReadValue<Vector2>();
             movementVector = new Vector3(input.x, 0, input.y);
-
-            print(movementVector);
         }
-    // Start is called before the first frame update
+
+        private void Rotate()
+        {
+            if (movementVector == Vector3.zero) return;
+          
+            Quaternion startRotation = transform.rotation;
+            Quaternion endRotation = Quaternion.LookRotation(movementVector);
+        } 
 
     }
 
