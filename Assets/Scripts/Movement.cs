@@ -22,7 +22,8 @@ namespace RPG.Character
 
         private void MovePlayer()
         {
-            agent.Move(movementVector);
+            Vector3 offset = movementVector * Time.deltaTime;
+            agent.Move(offset);
         }
 
         public void HandleMove(InputAction.CallbackContext context)
