@@ -370,6 +370,7 @@
 "Assets/Examples/Robot.cs"
 "Assets/Scripts/Character/EnemyController.cs"
 "Assets/Scripts/Character/Movement.cs"
+"Assets/Scripts/Utility/Constants.cs"
 -langversion:9.0
 /deterministic
 /optimize+
