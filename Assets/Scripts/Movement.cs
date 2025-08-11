@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 
 namespace RPG.Character
 {
+    [RequireComponent(typeof(NavMeshAgent))]
     public class Movement : MonoBehaviour
     {
         private NavMeshAgent agent;
@@ -45,9 +46,9 @@ namespace RPG.Character
             transform.rotation = Quaternion.Lerp(
                 startRotation,
                 endRotation,
-                Time.deltaTime * agent.angularSpeed 
+                Time.deltaTime * agent.angularSpeed
                 );
-        } 
+        }
 
     }
 

@@ -7,27 +7,28 @@ namespace RPG.Example
 {
     public class Robot : MonoBehaviour
     {
-        private Battery includedBattery;
+        private BatteryRegulations includedBattery;
 
         Robot()
         {
             includedBattery = new Battery(80f);
-            print(includedBattery.health);
+            includedBattery.CheckHealth();
             Charger.ChargeBattery(includedBattery);
-            print(includedBattery.health);
+            includedBattery.CheckHealth();
             print(Charger.chargerInUse);
-            
+
         }
     }
 
-    public class Battery
+    public class Battery : BatteryRegulations
     {
-        public float health;
+        public Battery(float newHealth)  : base(newHealth) {}
 
-        public Battery(float newHealth)
+        
+
+        public override void CheckHealth()
         {
-            health = newHealth;
-            Debug.Log("New battery created");
+            Debug.Log(health);
         }
     }
 
@@ -35,11 +36,23 @@ namespace RPG.Example
     {
         public static bool chargerInUse = false;
 
-        public static void ChargeBattery(Battery batterToCharge)
+        public static void ChargeBattery(BatteryRegulations batterToCharge)
         {
             chargerInUse = true;
             batterToCharge.health = 100f;
         }
+    }
+
+    public abstract class BatteryRegulations
+    {
+        public float health;
+
+        public BatteryRegulations(float newHealth)
+        {
+            health = newHealth;
+            Debug.Log("New battery created");
+        }
+        public abstract void CheckHealth();
     }
 
 }
