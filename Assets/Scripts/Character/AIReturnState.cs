@@ -6,13 +6,18 @@ namespace RPG.Character
     {
         public override void EnterState(EnemyController enemy)
         {
-            Debug.Log("entering return state");
+            enemy.movementCmp.MoveAgentByDestination(enemy.originalPosition);
+            
         }
 
 
         public override void UpdateState(EnemyController enemy)
         {
-            Debug.Log("entering update state");
+            if (enemy.distanceFromPlayer < enemy.chaseRange)
+            {
+                enemy.SwitchState(enemy.chaseState);
+                return;
+            }
         }
     }
 }

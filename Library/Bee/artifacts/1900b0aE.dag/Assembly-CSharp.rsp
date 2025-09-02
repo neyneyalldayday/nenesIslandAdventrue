@@ -369,6 +369,7 @@
 "Assets/Examples/AnotherExample.cs"
 "Assets/Examples/Robot.cs"
 "Assets/Scripts/Character/AIBaseState.cs"
+"Assets/Scripts/Character/AIChaseSate.cs"
 "Assets/Scripts/Character/AIReturnState.cs"
 "Assets/Scripts/Character/EnemyController.cs"
 "Assets/Scripts/Character/Movement.cs"

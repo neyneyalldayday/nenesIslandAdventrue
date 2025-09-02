@@ -6,14 +6,19 @@ namespace RPG.Character
 {
     public class EnemyController : MonoBehaviour
     {
-        private GameObject player;
-        private Movement movementCmp;
+        [NonSerialized] public GameObject player;
+        [NonSerialized] public float distanceFromPlayer;
+        [NonSerialized] public Vector3 originalPosition;
+        [NonSerialized] public Movement movementCmp;
+        
+        
         public float chaseRange = 2.5f;
         public float attackRange = 0.75f;
-        [NonSerialized] public float distanceFromPlayer;
+    
 
         private AIBaseState currentState;
         public AIReturnState returnState = new AIReturnState();
+        public AIChaseState chaseState = new AIChaseState();
 
         private void Awake()
         {
@@ -21,6 +26,8 @@ namespace RPG.Character
 
             player = GameObject.FindWithTag(Constants.PLAYER_TAG);
             movementCmp = GetComponent<Movement>();
+
+            originalPosition = transform.position;
         }
 
         private void Start()
@@ -31,17 +38,17 @@ namespace RPG.Character
         private void Update()
         {
             CalculateDistanceFromPlayer();
-            ChasePlayer();
-
             currentState.UpdateState(this);
         }
 
-        private void ChasePlayer()
-        {
-            if (distanceFromPlayer > chaseRange) return;
 
-            movementCmp.MoveAgentByDestination(player.transform.position);
+        public void SwitchState(AIBaseState newState)
+        {
+            currentState = newState;
+            currentState.EnterState(this);
         }
+
+
 
         private void CalculateDistanceFromPlayer()
         {
