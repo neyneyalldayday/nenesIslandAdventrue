@@ -12,16 +12,28 @@ namespace RPG.Character
         public float attackRange = 0.75f;
         [NonSerialized] public float distanceFromPlayer;
 
+        private AIBaseState currentState;
+        public AIReturnState returnState = new AIReturnState();
+
         private void Awake()
         {
+            currentState = returnState;
+
             player = GameObject.FindWithTag(Constants.PLAYER_TAG);
             movementCmp = GetComponent<Movement>();
+        }
+
+        private void Start()
+        {
+            currentState.EnterState(this);
         }
 
         private void Update()
         {
             CalculateDistanceFromPlayer();
             ChasePlayer();
+
+            currentState.UpdateState(this);
         }
 
         private void ChasePlayer()
