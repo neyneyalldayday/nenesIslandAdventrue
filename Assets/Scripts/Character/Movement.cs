@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
+
 
 
 namespace RPG.Character
@@ -48,6 +48,11 @@ namespace RPG.Character
                 endRotation,
                 Time.deltaTime * agent.angularSpeed
                 );
+        }
+
+        public void MoveAgentByDestination(Vector3 destination)
+        {
+            agent.SetDestination(destination); 
         }
 
     }
