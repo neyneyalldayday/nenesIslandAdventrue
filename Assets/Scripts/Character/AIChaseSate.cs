@@ -14,6 +14,11 @@ namespace RPG.Character
                 enemy.SwitchState(enemy.returnState);
                 return;
             }
+             if (enemy.distanceFromPlayer < enemy.attackRange)
+            {
+                enemy.SwitchState(enemy.attackState);
+                return;
+            }
 
             enemy.movementCmp.MoveAgentByDestination(enemy.player.transform.position);
         }

@@ -52,7 +52,12 @@ namespace RPG.Character
 
         public void MoveAgentByDestination(Vector3 destination)
         {
-            agent.SetDestination(destination); 
+            agent.SetDestination(destination);
+        }
+
+        public void StopMovingAgent()
+        {
+            agent.ResetPath();
         }
 
     }

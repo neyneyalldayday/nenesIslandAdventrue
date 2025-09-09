@@ -20,6 +20,8 @@ namespace RPG.Character
         public AIReturnState returnState = new AIReturnState();
         public AIChaseState chaseState = new AIChaseState();
 
+        public AIAttackState attackState = new AIAttackState();
+
         private void Awake()
         {
             currentState = returnState;
@@ -44,9 +46,13 @@ namespace RPG.Character
 
         public void SwitchState(AIBaseState newState)
         {
+            Debug.Log(newState);
             currentState = newState;
             currentState.EnterState(this);
         }
+
+
+   
 
 
 
@@ -60,6 +66,9 @@ namespace RPG.Character
 
             distanceFromPlayer = Vector3.Distance(enemyPosition, playerPosition);
         }
+
+
+     
 
         private void OnDrawGizmosSelected()
         {
