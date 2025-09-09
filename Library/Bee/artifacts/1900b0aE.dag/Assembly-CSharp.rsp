@@ -378,6 +378,7 @@
 "Assets/Scripts/Character/AIReturnState.cs"
 "Assets/Scripts/Character/EnemyController.cs"
 "Assets/Scripts/Character/Movement.cs"
+"Assets/Scripts/Character/Patrol.cs"
 "Assets/Scripts/Utility/Constants.cs"
 -langversion:9.0
 /deterministic
