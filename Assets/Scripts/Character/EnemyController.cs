@@ -10,6 +10,7 @@ namespace RPG.Character
         [NonSerialized] public float distanceFromPlayer;
         [NonSerialized] public Vector3 originalPosition;
         [NonSerialized] public Movement movementCmp;
+        [NonSerialized] public Patrol patrolCmp;
         
         
         public float chaseRange = 2.5f;
@@ -22,12 +23,15 @@ namespace RPG.Character
 
         public AIAttackState attackState = new AIAttackState();
 
+        public AIPatrolState patrolState = new AIPatrolState();
+
         private void Awake()
         {
             currentState = returnState;
 
             player = GameObject.FindWithTag(Constants.PLAYER_TAG);
             movementCmp = GetComponent<Movement>();
+            patrolCmp = GetComponent<Patrol>();
 
             originalPosition = transform.position;
         }

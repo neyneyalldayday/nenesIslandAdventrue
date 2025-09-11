@@ -4,10 +4,21 @@ namespace RPG.Character
 {
     public class AIReturnState : AIBaseState
     {
+        Vector3 targetPosition;
         public override void EnterState(EnemyController enemy)
         {
-            enemy.movementCmp.MoveAgentByDestination(enemy.originalPosition);
-            
+
+            if (enemy.patrolCmp != null)
+            {
+                targetPosition = enemy.patrolCmp.GetNextPosition();
+
+                enemy.movementCmp.MoveAgentByDestination(targetPosition);
+            }
+            else
+            {
+                enemy.movementCmp.MoveAgentByDestination(enemy.originalPosition);
+            }
+
         }
 
 
@@ -17,6 +28,15 @@ namespace RPG.Character
             {
                 enemy.SwitchState(enemy.chaseState);
                 return;
+            }
+
+            if (enemy.movementCmp.ReachedDestination())
+            {
+                if (enemy.patrolCmp != null)
+                {
+                    enemy.SwitchState(enemy.patrolState);
+                    return;
+                }
             }
         }
     }

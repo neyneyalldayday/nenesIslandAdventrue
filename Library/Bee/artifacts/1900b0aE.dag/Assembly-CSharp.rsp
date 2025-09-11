@@ -375,6 +375,7 @@
 "Assets/Scripts/Character/AIAttackState.cs"
 "Assets/Scripts/Character/AIBaseState.cs"
 "Assets/Scripts/Character/AIChaseSate.cs"
+"Assets/Scripts/Character/AIPatrolState.cs"
 "Assets/Scripts/Character/AIReturnState.cs"
 "Assets/Scripts/Character/EnemyController.cs"
 "Assets/Scripts/Character/Movement.cs"
