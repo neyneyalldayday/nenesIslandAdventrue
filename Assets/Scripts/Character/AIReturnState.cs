@@ -7,6 +7,7 @@ namespace RPG.Character
         Vector3 targetPosition;
         public override void EnterState(EnemyController enemy)
         {
+            enemy.movementCmp.UpdateAgentSpeed(enemy.stats.walkSpeed);
 
             if (enemy.patrolCmp != null)
             {

@@ -161,6 +161,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2137297629870483510, guid: 73f349706cf1de34592d66fcac13376c, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: fb3144e1364603f468a9c933bdcafa46, type: 2}
     - target: {fileID: 6572781034334577085, guid: 73f349706cf1de34592d66fcac13376c, type: 3}
       propertyPath: m_Name
       value: Enemy Patrol Guard
@@ -193,6 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e9c7ee146c4b9e47ae14a12bea1e7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splineGameObject: {fileID: 0}
+  walkDuration: 3
+  pauseDuration: 2
 --- !u!4 &5479162578792056335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2017015614543832702, guid: 73f349706cf1de34592d66fcac13376c, type: 3}

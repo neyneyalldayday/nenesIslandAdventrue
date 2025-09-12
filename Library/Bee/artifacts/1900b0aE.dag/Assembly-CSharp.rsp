@@ -377,9 +377,13 @@
 "Assets/Scripts/Character/AIChaseSate.cs"
 "Assets/Scripts/Character/AIPatrolState.cs"
 "Assets/Scripts/Character/AIReturnState.cs"
+"Assets/Scripts/Character/CharacterStatsSO.cs"
+"Assets/Scripts/Character/Combat.cs"
 "Assets/Scripts/Character/EnemyController.cs"
+"Assets/Scripts/Character/Health.cs"
 "Assets/Scripts/Character/Movement.cs"
 "Assets/Scripts/Character/Patrol.cs"
+"Assets/Scripts/Character/Player Controller.cs"
 "Assets/Scripts/Utility/Constants.cs"
 -langversion:9.0
 /deterministic
